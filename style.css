@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
+body{
+    background: linear-gradient(to top, aquamarine, aqua, #40dee9);
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -11,28 +15,27 @@
 }
 
 .container {
-    background-color: white;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     padding: 2rem;
-    /* height: 100vh; */
 }
 
 .con {
-    background-color: #ededed;
+    background-color: rgba(173, 216, 230, 0.6);
     padding: 1rem;
     display: flex;
     flex-direction: column;
+    justify-content: left;
+    width: 500px;
     gap: 1.5rem;
-    /* height: 90vh; */
     border-radius: 20px;
-    box-shadow: 2px 2px 5px 2px #b0b0f3;
+    margin-top: 3rem;
 }
 
 .con h1 {
     font-family: 'Playfair Display';
-    color: #3232ff;
+    color: #000;
 }
 
 form {
@@ -44,26 +47,30 @@ form {
 label {
     font-size: 16px;
     font-family: 'Inter';
-    color: #3232ff;
+    color: #000;
 }
 
 .txt  {
     font-size: 16px;
     font-family: 'Inter';
     margin-bottom: 10px;
-    color: #3232ff;
+    color: #000;
 }
 
 #text {
-    min-height: 250px;
+    min-height: 150px;
     min-width: 100%;
-    /* max-width: 10rem; */
     background-color: transparent;
     border: 1px solid black;
     border-radius: 10px;
     padding: 10px 0 0 10px;
-    font-size: 14px;
+    font-size: 18px;
     font-family: 'Inter';
+    color: #000;
+}
+
+#text::placeholder {
+    color: #000;
 }
 
 #voiceSelect {  
@@ -82,23 +89,23 @@ label {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 40px;
-    background-color: #3232ff;
+    height: 45px;
+    background-color: #16cfcf;
     border-radius: 10px;
     cursor: pointer;
 }
 
 .speakBtn {
     background-color: transparent;
-    font-size: 16px;
-    color: #fff;
+    font-size: 20px;
+    color: #000;
     cursor: pointer;
     font-family: 'Inter';
 }
 
 .voiceIcon {
     font-size: 24px;
-    color: white;
+    color: #000;
     cursor: pointer;
 }
 
@@ -114,8 +121,7 @@ label {
 .btn {
     background-color: transparent;
     font-family: 'Inter';
-    font-size: 16px;
-    color: #3232ff;
+    font-size: 18px;
     cursor: pointer;
 }
 
@@ -123,7 +129,7 @@ label {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #3232ff;
+    border: 2px solid #16cfcf;
     border-radius: 10px;
     width: 100%;
     height: 40px;
@@ -132,42 +138,116 @@ label {
 
 ion-icon {
     font-size: 24px;
-    color: #3232ff;
 }
 
 .pauseBtnCon:hover, .resumeBtnCon:hover {
-    background-color: #b0b0f3;
+    background-color: #16cfcf;
     transform: scale(0.95);
 }
 
-/* @media screen and (max-width: 600px) {
-    #text {
-        min-width: 400px;
+#bars {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+}
+
+.bar {
+    background-color: #000;
+    bottom: 1px;
+    height: 3px;
+    width: 10px;
+    margin: 0px 4px;
+    border-radius: 5px;
+    animation: sound 0ms -600ms linear infinite alternate;
+}
+
+.color {
+    background-color: rgba(40, 99, 119, 0.6) ;
+}
+
+@keyframes sound {
+    0% {
+       opacity: .35;
+        height: 3px; 
+    }
+    100% {
+        opacity: 1;       
+        height: 70px;        
     }
 }
 
-@media screen and (max-width: 500px) {
-    #text {
-        min-width: 380px;
+.bar:nth-child(1)  { left: 1px; animation-duration: 599ms; }
+.bar:nth-child(2)  { left: 15px; animation-duration: 558ms; }
+.bar:nth-child(3)  { left: 29px; animation-duration: 532ms; }
+.bar:nth-child(4)  { left: 43px; animation-duration: 583ms; }
+.bar:nth-child(5)  { left: 57px; animation-duration: 525ms; }
+.bar:nth-child(6)  { left: 71px; animation-duration: 552ms; }
+.bar:nth-child(7)  { left: 85px; animation-duration: 536ms; }
+.bar:nth-child(8)  { left: 99px; animation-duration: 544ms; }
+.bar:nth-child(9)  { left: 113px; animation-duration: 612ms; }
+.bar:nth-child(10) { left: 127px; animation-duration: 567ms; }
+
+.barText {
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Inter';
+    text-align: center;
+}
+
+.barCon {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    gap: 5rem;
+}
+
+.textToSpeech {
+    color: rgb(87, 168, 196);
+    font-weight: 700;
+    font-size: 48px;
+    font-family: 'Playfair Display';
+    text-transform: capitalize;
+}
+
+@media screen and (max-width: 900px) {
+    .con {
+        width: 400px;
+    }
+    .barText {
+        font-size: 16px;
+    }
+
+    .textToSpeech {
+        font-size: 36px;
     }
 }
 
-@media screen and (max-width: 470px) {
-    #text {
-        min-width: 350px;
+@media screen and (max-width: 750px) {
+    .barText {
+        font-size: 16px;
+    }
+
+    .textToSpeech {
+        font-size: 36px;
+    }
+
+    .barCon {
+        width: 50%;
+    }
+    .container {
+        gap: 1rem;
     }
 }
 
-@media screen and (max-width: 450px) {
-    #text {
-        min-width: 330px;
+@media screen and (max-width: 600px) {
+    .barCon {
+        width: 40%;
     }
-} */
+}
 
-
-
-
-
-
-
-
+@media screen and (max-width: 550px) {
+    .barCon {
+        display: none;
+    }
+}
