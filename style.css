@@ -10,7 +10,6 @@ body{
     box-sizing: border-box;
     border: none;
     outline: none;
-    overflow: hidden;
     transition: all .3s ease;
 }
 
@@ -22,15 +21,16 @@ body{
 }
 
 .con {
-    background-color: rgba(173, 216, 230, 0.6);
-    padding: 1rem;
+    background-color: #0096C7;
+    padding: 1rem 2rem;
     display: flex;
     flex-direction: column;
     justify-content: left;
     width: 500px;
+    height: 100%;
     gap: 1.5rem;
     border-radius: 20px;
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
 .con h1 {
@@ -164,7 +164,7 @@ ion-icon {
 }
 
 .color {
-    background-color: rgba(40, 99, 119, 0.6) ;
+    background-color: #0096C7;
 }
 
 @keyframes sound {
@@ -204,7 +204,7 @@ ion-icon {
 }
 
 .textToSpeech {
-    color: rgb(87, 168, 196);
+    color: #0096C7;
     font-weight: 700;
     font-size: 48px;
     font-family: 'Playfair Display';
@@ -238,6 +238,12 @@ ion-icon {
     }
     .container {
         gap: 1rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .container {
+        flex-direction: column-reverse;
     }
 }
 

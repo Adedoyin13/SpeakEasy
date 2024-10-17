@@ -42,40 +42,38 @@ speakButton.addEventListener('click', function (e) {
     const selectedVoice = voiceSelect.selectedOptions[0].getAttribute('data-name');
     utterance.voice = voices.find(voice => voice.name === selectedVoice);
 
+    isPaused = false;
 
     utterance.onend = () => {
         isPaused = false;
         utterance = null;
     };
 
+    utterance.onpause = () => {
+        isPaused = true;
+    };
+
     speechSynthesis.speak(utterance);
-    isPaused = false; 
 });
 
 pauseButton.addEventListener('click', function (e) {
     e.preventDefault();
     if (speechSynthesis.speaking && !isPaused) {
-        speechSynthesis.pause()
+        speechSynthesis.pause();
     }
-            
-     utterance.onpause = () => {
-        isPaused = true;
-    };
 });
 
 resumeButton.addEventListener('click', function (e) {
-   e.preventDefault();
+    e.preventDefault();
     if (isPaused) {
-             speechSynthesis.resume();
-            isPaused = false;
-        }
-    });
+        speechSynthesis.resume();
+        isPaused = false;
+    }
+});
 
 window.addEventListener('beforeunload', () => {
     if (speechSynthesis.speaking) {
         speechSynthesis.cancel();
     }
 });
-  
-
 
